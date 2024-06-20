@@ -54,7 +54,7 @@ func RunUserSign() {
 	} else {
 		fmt.Printf("签到失败，%s\n", result.Tip)
 	}
-
+	time.Sleep(3*time.Second)
 	// 抽奖
 	r, err := activeUser.PanClient().UserDrawPrize(cloudpan.ActivitySignin)
 	if err != nil {
@@ -67,7 +67,7 @@ func RunUserSign() {
 			return
 		}
 	}
-	time.Sleep(30*time.Second)
+	time.Sleep(10*time.Second)
 	r, err = activeUser.PanClient().UserDrawPrize(cloudpan.ActivitySignPhotos)
 	if err != nil {
 		fmt.Printf("第2次抽奖失败: %s\n", err)
