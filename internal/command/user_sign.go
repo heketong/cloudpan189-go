@@ -19,6 +19,7 @@ import (
 	"github.com/tickstep/cloudpan189-go/cmder"
 	"github.com/tickstep/cloudpan189-go/internal/config"
 	"github.com/urfave/cli"
+	"time"
 )
 
 func CmdSign() cli.Command {
@@ -66,7 +67,7 @@ func RunUserSign() {
 			return
 		}
 	}
-
+	time.Sleep(30*time.Second)
 	r, err = activeUser.PanClient().UserDrawPrize(cloudpan.ActivitySignPhotos)
 	if err != nil {
 		fmt.Printf("第2次抽奖失败: %s\n", err)
